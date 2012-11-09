@@ -18,7 +18,7 @@ def do_write(features, cur, max):
 
 def write_all(all_the_features):
     output.write("create sequence id_seq start 1;\n")
-    output.write("CREATE TABLE sample_mpoints (id integer, geometry st_geometry);\n")
+    output.write("CREATE TABLE sample_mpoints (id integer, geometry st_geometry, label integer);\n")
     output.write("INSERT INTO sample_mpoints (id, geometry, label) VALUES\n")
     l = len(all_the_features)
     for i in range(l):
