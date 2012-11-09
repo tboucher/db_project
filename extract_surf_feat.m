@@ -1,9 +1,11 @@
+% extract features from all photos of people with exactly 5 photos
+
 function [feature_matrix] = load_files ( )
     
-    stat_file = '/home/tommy/Desktop/db_project/lfw-names.txt';
-    img_dir = '/home/tommy/Desktop/db_project/lfw/';
+    img_dir       = '/home/tommy/Desktop/db_project/lfw/';
+    stat_file     = 'lfw-names.txt';
 
-    [names, count] = textread(stat_file, '%s %d');
+    [names, count] = textread(strcat( img_dir, stat_file ), '%s %d');
     
     feature_matrix = [];
 
@@ -22,6 +24,5 @@ function [feature_matrix] = load_files ( )
         end
     end
 
-    %dlmwrite(strcat( img_dir, 'feature_matrix.csv' ), feature_matrix)
-
+    dlmwrite(strcat( img_dir, '../', 'feature_matrix.csv' ), feature_matrix)
 end

@@ -1,6 +1,6 @@
 import csv
 
-clusters_file = open('/home/tommy/Desktop/db_project/clusters.csv', 'rb')
+clusters_file = open('cluster_matrix.csv', 'rb')
 clusters_reader = csv.reader(clusters_file, delimiter='\t')
 clusters = []
 for rows in clusters_reader:
