@@ -7,7 +7,7 @@ for rows in clusters_reader:
     clusters.append(rows)
 
 output = open('sql_stuff.sql', 'w')
-SSS = "(select nextval('id_seq'), st_multipoint('multipoint (" + "%s 0, " * 29 + "%s 0)', %s)"
+SSS = "(nextval('id_seq'), 'multipoint (" + "%s 0, " * 29 + "%s 0)', %s)"
 
 def do_write(features, cur, max):
     tu = array_to_tuple(features)
@@ -18,8 +18,8 @@ def do_write(features, cur, max):
 
 def write_all(all_the_features):
     output.write("create sequence id_seq start 1;\n")
-    output.write("CREATE TABLE sample_mpoints (id integer, geometry st_geometry, label integer);\n")
-    output.write("INSERT INTO sample_mpoints (id, geometry, label) VALUES\n")
+    output.write("CREATE TABLE sample_mpoints (id integer, features geometry, label integer);\n")
+    output.write("INSERT INTO sample_mpoints (id, features, label) VALUES\n")
     l = len(all_the_features)
     for i in range(l):
         do_write(all_the_features[i], i, l)
