@@ -1,6 +1,6 @@
 % extract features from all photos of people with exactly 5 photos
 
-function [feature_matrix] = load_files ( )
+function [feature_matrix] = extract_surf_feat ( )
     
     img_dir       = '/home/tommy/Desktop/db_project/lfw/';
     stat_file     = 'lfw-names.txt';
